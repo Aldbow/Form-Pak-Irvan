@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survei Prioritas Masalah PBJ Kemnaker</title>
+    <!-- Google Fonts: Outfit for Headings, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Elements for Premium Look -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="container animate-on-load">
+        <header class="header">
+            <div class="header-logo-placeholder"></div>
+            <h1>SURVEI PENILAIAN PRIORITAS<br>AKAR MASALAH</h1>
+            <h2>PENGADAAN BARANG/JASA KEMENTERIAN KETENAGAKERJAAN</h2>
+            <div class="badge">Metode USG (Urgency — Seriousness — Growth)</div>
+        </header>
+
+        <form id="surveiForm">
+            <!-- A. Pengantar -->
+            <section class="form-section fade-in-section">
+                <div class="section-header">
+                    <div class="section-number">A</div>
+                    <h3>Pengantar dan Petunjuk Pengisian</h3>
+                </div>
+                <div class="info-card glass-effect">
+                    <p>Yth. Bapak/Ibu Responden,</p>
+                    <p>Survei ini dilaksanakan dalam rangka penyusunan Rancangan Aksi Perubahan (RAP) PKA pada UKPBJ Kementerian Ketenagakerjaan. Tujuannya adalah mengidentifikasi dan memprioritaskan akar masalah tata kelola pengadaan barang/jasa (PBJ) berdasarkan penilaian para pemangku kepentingan terkait.</p>
+                    
+                    <div class="criteria-box">
+                        <h4>Kriteria Penilaian:</h4>
+                        <ul class="criteria-list">
+                            <li><span class="highlight">U (Urgency):</span> Tingkat mendesak masalah untuk segera diselesaikan.</li>
+                            <li><span class="highlight">S (Seriousness):</span> Tingkat keparahan dampak jika masalah tidak ditangani.</li>
+                            <li><span class="highlight">G (Growth):</span> Tingkat pertumbuhan masalah jika dibiarkan.</li>
+                        </ul>
+                    </div>
+
+                    <div class="scale-info">
+                        <h4>Skala Penilaian (1-5):</h4>
+                        <div class="scale-grid">
+                            <div class="scale-item"><span class="scale-num">1</span> <span class="scale-desc">Sangat Rendah (Tidak mendesak / tidak berdampak / tidak berkembang)</span></div>
+                            <div class="scale-item"><span class="scale-num">2</span> <span class="scale-desc">Rendah (Kurang mendesak / kecil dampak / lambat berkembang)</span></div>
+                            <div class="scale-item"><span class="scale-num">3</span> <span class="scale-desc">Sedang (Cukup mendesak / cukup berdampak / cukup berkembang)</span></div>
+                            <div class="scale-item"><span class="scale-num">4</span> <span class="scale-desc">Tinggi (Mendesak / berdampak nyata / berkembang signifikan)</span></div>
+                            <div class="scale-item"><span class="scale-num">5</span> <span class="scale-desc">Sangat Tinggi (Sangat mendesak / sangat berdampak / berkembang pesat)</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- B. Identitas Responden -->
+            <section class="form-section fade-in-section">
+                <div class="section-header">
+                    <div class="section-number">B</div>
+                    <h3>Identitas Responden</h3>
+                </div>
+                <div class="card glass-effect">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nama">Nama <span class="optional">(*boleh dikosongkan)</span></label>
+                            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+                            <div class="input-focus-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="satker">Satuan Kerja / Unit <span class="required">*</span></label>
+                            <input type="text" id="satker" name="satker" required placeholder="Masukkan Satuan Kerja/Unit">
+                            <div class="input-focus-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="jabatan">Jabatan / Peran <span class="required">*</span></label>
+                            <div class="select-wrapper">
+                                <select id="jabatan" name="jabatan" required>
+                                    <option value="" disabled selected>-- Pilih Jabatan/Peran --</option>
+                                    <option value="PPK">PPK</option>
+                                    <option value="Kepala Satker">Kepala Satker</option>
+                                    <option value="JFPPBJ">JFPPBJ</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" id="jabatanLainnyaGroup" style="display: none;">
+                            <label for="jabatanLainnya">Sebutkan Jabatan Lainnya <span class="required">*</span></label>
+                            <input type="text" id="jabatanLainnya" name="jabatanLainnya" placeholder="Sebutkan...">
+                            <div class="input-focus-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal">Tanggal Pengisian <span class="required">*</span></label>
+                            <input type="date" id="tanggal" name="tanggal" required>
+                            <div class="input-focus-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- C. Penilaian Akar Masalah -->
+            <section class="form-section fade-in-section">
+                <div class="section-header">
+                    <div class="section-number">C</div>
+                    <h3>Penilaian Akar Masalah</h3>
+                </div>
+                <p class="section-desc">Pilih angka 1–5 untuk setiap dimensi (U, S, G) pada masing-masing akar permasalahan berikut.</p>
+                
+                <div id="penilaianContainer">
+                    <!-- Dinamis akan diisi oleh script.js -->
+                </div>
+            </section>
+
+            <!-- D. Catatan / Komentar -->
+            <section class="form-section fade-in-section">
+                <div class="section-header">
+                    <div class="section-number">D</div>
+                    <h3>Catatan / Komentar Tambahan</h3>
+                </div>
+                <div class="card glass-effect">
+                    <div class="form-group">
+                        <label for="catatan">Jika ada hal-hal lain terkait tata kelola PBJ yang ingin Anda sampaikan, silakan tuliskan di bawah ini:</label>
+                        <textarea id="catatan" name="catatan" rows="4" placeholder="Tulis catatan Anda di sini..."></textarea>
+                        <div class="input-focus-line"></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="submit-container fade-in-section">
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">Kirim Penilaian</span>
+                    <div class="btn-loader"></div>
+                </button>
+            </div>
+        </form>
+
+        <footer class="footer">
+            <p>Terima kasih atas partisipasi Bapak/Ibu.<br>
+            Hasil survei ini akan digunakan semata-mata untuk keperluan penyusunan Rancangan Aksi Perubahan UKPBJ Kemnaker dan tidak akan disebarluaskan.</p>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content glass-effect">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h3>Terima Kasih!</h3>
+            <p>Data survei Anda berhasil disimpan.</p>
+            <button id="closeModal" class="btn-outline">Tutup</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

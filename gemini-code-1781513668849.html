@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survei Prioritas Masalah PBJ Kemnaker</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --bg-color: #f0f4f8;
+            --text-color: #333;
+            --border-color: #ccc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .header h2 {
+            font-size: 16px;
+            color: #555;
+            font-weight: normal;
+        }
+        .info-box {
+            background-color: #e9f5ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .table-responsive {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        td.text-left {
+            text-align: left;
+        }
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #004494;
+        }
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+        /* scale details styling */
+        .scale-info { font-size: 13px; color: #555; }
+        .scale-info ul { margin-top: 5px; padding-left: 20px;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>SURVEI PENILAIAN PRIORITAS AKAR MASALAH</h1>
+        <h2>PENGADAAN BARANG/JASA KEMENTERIAN KETENAGAKERJAAN<br>Metode USG (Urgency — Seriousness — Growth)</h2>
+    </div>
+
+    <form id="surveiForm">
+        <!-- A. Pengantar -->
+        <h3>A. Pengantar dan Petunjuk Pengisian</h3>
+        <div class="info-box">
+            <p>Yth. Bapak/Ibu Responden,<br>
+            Survei ini dilaksanakan dalam rangka penyusunan Rancangan Aksi Perubahan (RAP) PKA pada UKPBJ Kementerian Ketenagakerjaan. Tujuannya adalah mengidentifikasi dan memprioritaskan akar masalah tata kelola pengadaan barang/jasa (PBJ) berdasarkan penilaian para pemangku kepentingan terkait.</p>
+            <p><strong>Kriteria Penilaian:</strong><br>
+            <strong>U (Urgency):</strong> Tingkat mendesak masalah untuk segera diselesaikan.<br>
+            <strong>S (Seriousness):</strong> Tingkat keparahan dampak jika masalah tidak ditangani.<br>
+            <strong>G (Growth):</strong> Tingkat pertumbuhan masalah jika dibiarkan.</p>
+            <div class="scale-info">
+                <strong>Skala Penilaian (1-5):</strong>
+                <ul>
+                    <li>1 = Sangat Rendah (Tidak mendesak / tidak berdampak / tidak berkembang)</li>
+                    <li>2 = Rendah (Kurang mendesak / kecil dampak / lambat berkembang)</li>
+                    <li>3 = Sedang (Cukup mendesak / cukup berdampak / cukup berkembang)</li>
+                    <li>4 = Tinggi (Mendesak / berdampak nyata / berkembang signifikan)</li>
+                    <li>5 = Sangat Tinggi (Sangat mendesak / sangat berdampak / berkembang pesat)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- B. Identitas Responden -->
+        <h3>B. Identitas Responden</h3>
+        <div class="form-group">
+            <label for="nama">Nama (*boleh dikosongkan)</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+        </div>
+        <div class="form-group">
+            <label for="satker">Satuan Kerja / Unit *</label>
+            <input type="text" id="satker" name="satker" required placeholder="Masukkan Satuan Kerja/Unit">
+        </div>
+        <div class="form-group">
+            <label for="jabatan">Jabatan / Peran *</label>
+            <select id="jabatan" name="jabatan" required>
+                <option value="">-- Pilih Jabatan/Peran --</option>
+                <option value="PPK">PPK</option>
+                <option value="Kepala Satker">Kepala Satker</option>
+                <option value="JFPPBJ">JFPPBJ</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+        </div>
+        <div class="form-group" id="jabatanLainnyaGroup" style="display: none;">
+            <label for="jabatanLainnya">Sebutkan Jabatan Lainnya</label>
+            <input type="text" id="jabatanLainnya" name="jabatanLainnya" placeholder="Sebutkan...">
+        </div>
+        <div class="form-group">
+            <label for="tanggal">Tanggal Pengisian *</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+        </div>
+
+        <!-- C. Penilaian Akar Masalah -->
+        <h3>C. Penilaian Akar Masalah</h3>
+        <p>Pilih angka 1–5 untuk setiap dimensi (U, S, G) pada masing-masing akar permasalahan berikut.</p>
+
+        <script>
+            // Data untuk di-generate otomatis
+            const masalah = [
+                "1. Tidak ada sistem monitoring & pengendalian PBJ berbasis data (dikonfirmasi 3 LHP BPKP 2025)",
+                "2. Kepatuhan dokumentasi & input SPSE rendah",
+                "3. Integritas proses & disiplin belanja lemah",
+                "4. Kapasitas SDM PBJ belum memadai"
+            ];
+            const dimensi = [
+                { kode: "U", nama: "Urgency", tanya: "Seberapa mendesak masalah ini harus segera ditangani?" },
+                { kode: "S", nama: "Seriousness", tanya: "Seberapa serius dampak yang ditimbulkan jika masalah ini dibiarkan?" },
+                { kode: "G", nama: "Growth", tanya: "Seberapa besar kemungkinan masalah ini berkembang jika tidak ditangani?" }
+            ];
+
+            // Render form tabel secara dinamis dengan JS
+            dimensi.forEach(d => {
+                document.write(`<div class="table-responsive">`);
+                document.write(`<h4>${d.kode} — ${d.nama}</h4>`);
+                document.write(`<p style="font-size:14px; color:#555;"><i>${d.tanya}</i></p>`);
+                document.write(`<table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Pernyataan / Indikator</th>
+                            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                        </tr>
+                    </thead>
+                    <tbody>`);
+                
+                masalah.forEach((m, idx) => {
+                    document.write(`<tr>
+                        <td class="text-left">${m}</td>`);
+                    for(let i=1; i<=5; i++){
+                        document.write(`<td><input type="radio" name="${d.kode}_Q${idx+1}" value="${i}" required></td>`);
+                    }
+                    document.write(`</tr>`);
+                });
+                
+                document.write(`</tbody></table></div>`);
+            });
+        </script>
+
+        <!-- D. Catatan / Komentar -->
+        <h3>D. Catatan / Komentar Tambahan</h3>
+        <div class="form-group">
+            <label for="catatan">Jika ada hal-hal lain terkait tata kelola PBJ yang ingin Anda sampaikan, silakan tuliskan di bawah ini:</label>
+            <textarea id="catatan" name="catatan" rows="4" placeholder="Tulis catatan Anda di sini..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Kirim Penilaian</button>
+    </form>
+
+    <div class="footer">
+        <p>Terima kasih atas partisipasi Bapak/Ibu.<br>
+        Hasil survei ini akan digunakan semata-mata untuk keperluan penyusunan Rancangan Aksi Perubahan UKPBJ Kemnaker dan tidak akan disebarluaskan.</p>
+    </div>
+</div>
+
+<script>
+    // Set auto date to today
+    document.getElementById('tanggal').valueAsDate = new Date();
+
+    // Toggle field jabatan lainnya
+    const jabatanSelect = document.getElementById('jabatan');
+    const jabatanLainnyaGroup = document.getElementById('jabatanLainnyaGroup');
+    jabatanSelect.addEventListener('change', function() {
+        if(this.value === 'Lainnya') {
+            jabatanLainnyaGroup.style.display = 'block';
+            document.getElementById('jabatanLainnya').required = true;
+        } else {
+            jabatanLainnyaGroup.style.display = 'none';
+            document.getElementById('jabatanLainnya').required = false;
+        }
+    });
+
+    // Form submission action
+    document.getElementById('surveiForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah reload halaman
+        alert('Terima kasih! Data survei Anda berhasil disimpan.');
+        // Di sini Anda bisa menambahkan script pengiriman data ke Google Sheets/Database
+        this.reset();
+        document.getElementById('tanggal').valueAsDate = new Date();
+    });
+</script>
+
+</body>
+</html>
