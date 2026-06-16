@@ -407,6 +407,23 @@ td.text-left {
     line-height: 1.5;
 }
 
+.bullet-question {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.bullet-num {
+    font-weight: 600;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+    min-width: 1.2rem;
+}
+
+.bullet-text {
+    flex-grow: 1;
+}
+
 tr:last-child td {
     border-bottom: none;
 }

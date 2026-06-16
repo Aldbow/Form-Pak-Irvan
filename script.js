@@ -39,8 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         masalah.forEach((m, idx) => {
+            const dotIndex = m.indexOf('. ');
+            let cellContent = m;
+            if (dotIndex !== -1) {
+                const num = m.substring(0, dotIndex + 1);
+                const text = m.substring(dotIndex + 2);
+                cellContent = `<div class="bullet-question"><span class="bullet-num">${num}</span><span class="bullet-text">${text}</span></div>`;
+            }
             htmlContent += `<tr>
-                <td class="text-left">${m}</td>`;
+                <td class="text-left">${cellContent}</td>`;
             for (let i = 1; i <= 5; i++) {
                 htmlContent += `
                     <td data-label="${i}">
@@ -127,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // GANTI URL DI BAWAH INI DENGAN URL WEB APP GOOGLE APPS SCRIPT ANDA
             const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzB371AZ1M6dOlBvWGmzf-yMQGtnStCJGRYZ5xuhiozAvoI_z2PIWtyFhom9zin9fIG1A/exec';
 
-            if (!googleScriptURL || googleScriptURL === 'https://script.google.com/macros/s/AKfycbzB371AZ1M6dOlBvWGmzf-yMQGtnStCJGRYZ5xuhiozAvoI_z2PIWtyFhom9zin9fIG1A/exec') {
+            if (!googleScriptURL || googleScriptURL.includes('GANTI_DENGAN_URL') || googleScriptURL.includes('YOUR_GOOGLE_SCRIPT') || googleScriptURL === '') {
                 // Fallback untuk demo jika URL belum diganti
                 setTimeout(() => {
                     handleSuccess(surveiForm);
