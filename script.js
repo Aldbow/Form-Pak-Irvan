@@ -132,34 +132,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const urlEncodedData = new URLSearchParams(formData);
 
             // GANTI URL DI BAWAH INI DENGAN URL WEB APP GOOGLE APPS SCRIPT ANDA
-            const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzB371AZ1M6dOlBvWGmzf-yMQGtnStCJGRYZ5xuhiozAvoI_z2PIWtyFhom9zin9fIG1A/exec';
+            const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxUl_qlI2sSkFWIVN4M0_uv-QVZ89rYoQqWlHjst7oAtWOmF0bQ2RnzuLvKEI_YW_Sj/exec';
 
-            if (!googleScriptURL || googleScriptURL.includes('GANTI_DENGAN_URL') || googleScriptURL.includes('YOUR_GOOGLE_SCRIPT') || googleScriptURL === '') {
-                // Fallback untuk demo jika URL belum diganti
-                setTimeout(() => {
+            // Kirim data ke Google Sheets
+            // Gunakan mode no-cors untuk menghindari pemblokiran CORS dari browser saat redirect
+            fetch(googleScriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: urlEncodedData
+            })
+                .then(() => {
+                    // Dalam mode no-cors, kita tidak bisa membaca response.ok, tapi jika promise resolve berarti request terkirim
                     handleSuccess(surveiForm);
-                }, 1500);
-            } else {
-                // Kirim data ke Google Sheets
-                // Gunakan mode no-cors untuk menghindari pemblokiran CORS dari browser saat redirect
-                fetch(googleScriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: urlEncodedData
                 })
-                    .then(() => {
-                        // Dalam mode no-cors, kita tidak bisa membaca response.ok, tapi jika promise resolve berarti request terkirim
-                        handleSuccess(surveiForm);
-                    })
-                    .catch(error => {
-                        console.error('Error!', error.message);
-                        alert('Terjadi kesalahan saat mengirim data. Silakan cek koneksi Anda dan coba lagi.');
-                        submitBtn.classList.remove('loading');
-                    });
-            }
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('Terjadi kesalahan saat mengirim data. Silakan cek koneksi Anda dan coba lagi.');
+                    submitBtn.classList.remove('loading');
+                });
         });
     }
 
